@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth overflow-x-hidden" style="scroll-padding-top: 120px;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Termos de Uso e Privacidade | Crescimento do Reino</title>
+
+    <!-- SEO & GEO Optimization -->
+    <meta name="description"
+        content="Termos de uso e políticas de privacidade do Ecossistema Crescimento do Reino de soluções e aplicativos.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            celeste: '#60a5fa',
+                            aurora: '#fb923c',
+                            gold: '#fbbf24',
+                            growth: '#10b981',
+                            light: '#fdfcf7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer base {
+            :root { color-scheme: light; }
+            body {
+                @apply bg-brand-light text-slate-800 antialiased overflow-x-hidden;
+                padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            }
+        }
+        
+        @layer utilities {
+            .container-px { @apply px-6 md:px-12 lg:px-24 mx-auto max-w-[1600px]; }
+        }
+    </style>
+</head>
+
+<body class="bg-brand-light min-h-screen flex flex-col font-sans">
+
+    <!-- Header Simples -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-brand-light/90 border-b border-slate-200">
+        <div class="container-px mx-auto h-24 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 md:gap-4 group relative z-10 hover:-translate-y-0.5 transition-transform duration-300">
+                <div class="relative w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white p-2 shadow-xl shadow-slate-200/50 border border-slate-100/50 flex items-center justify-center overflow-hidden">
+                    <img src="assets/logo.png" alt="Crescimento Logo" class="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-black text-slate-900 tracking-tight leading-none uppercase italic">Crescimento <br class="hidden sm:block"> <span class="text-brand-celeste opacity-90 not-italic">do Reino</span></span>
+                </div>
+            </a>
+            
+            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-brand-celeste transition-colors">Voltar para a Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-6 space-y-20">
+            
+            <!-- Introdução -->
+            <div class="text-center space-y-6">
+                <span class="text-brand-celeste font-black tracking-widest text-xs uppercase block">Jurídico</span>
+                <h1 class="text-4xl md:text-5xl font-black leading-tight text-slate-900">Documentação <span class="uau-gradient-text text-brand-celeste italic">Legal.</span></h1>
+                <p class="text-slate-500 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                    Nossas diretrizes de transparência, termos de uso das nossas soluções e as políticas de proteção aos seus dados.
+                </p>
+            </div>
+
+            <!-- Termos de Uso -->
+            <section id="termos" class="space-y-8 scroll-mt-32">
+                <div class="flex items-center gap-4 border-b border-slate-200 pb-4">
+                    <div class="w-2 h-8 bg-brand-celeste rounded-full"></div>
+                    <h2 class="text-3xl font-black text-slate-900">Termos de Uso</h2>
+                </div>
+                <div class="prose prose-slate prose-lg max-w-none text-slate-500 font-medium leading-relaxed">
+                    <p>Bem-vindo ao Ecossistema Crescimento do Reino. Ao acessar nossas aplicações (como o Pads Ambiente) e nosso site, você concorda com os seguintes termos. Nossa missão é servir a igreja local com tecnologia de excelência.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">1. Uso dos Nossos Serviços</h3>
+                    <p>O uso dos nossos aplicativos e sistemas digitais é concedido sob licença (gratuita ou premium, dependendo do modelo do software). Você se compromete a usar as ferramentas para os fins a que se destinam, promovendo o respeito e a ética.</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">2. Propriedade Intelectual</h3>
+                    <p>Todo o conteúdo, design, código-fonte e marcas (como "Crescimento do Reino" e "Pads Ambiente") são de nossa propriedade intelectual exclusiva, protegidos pelas leis de direitos autorais vigentes.</p>
+                </div>
+            </section>
+
+            <!-- Política de Privacidade -->
+            <section id="privacidade" class="space-y-8 scroll-mt-32 pt-10">
+                <div class="flex items-center gap-4 border-b border-slate-200 pb-4">
+                    <div class="w-2 h-8 bg-brand-aurora rounded-full"></div>
+                    <h2 class="text-3xl font-black text-slate-900">Política de Privacidade</h2>
+                </div>
+                <div class="prose prose-slate prose-lg max-w-none text-slate-500 font-medium leading-relaxed">
+                    <p>No Crescimento do Reino, valorizamos o cuidado com pessoas acima de tudo – e isso inclui o cuidado com seus dados (em conformidade com a LGPD).</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">1. Coleta de Dados</h3>
+                    <p>Coletamos apenas as informações estritamente necessárias para o funcionamento seguro dos nossos aplicativos e para prover suporte técnico (como nome, e-mail e métricas anônimas de erro ou navegação).</p>
+                    
+                    <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">2. Proteção de Informações</h3>
+                    <p>Suas informações não são vendidas ou fornecidas a terceiros para uso não autorizado. Utilizamos infraestrutura segura e melhores práticas do mercado para armazenar e encriptar qualquer dado sensível associado ao seu ministério.</p>
+
+                    <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4">3. Fale Conosco</h3>
+                    <p>Para exercer seus direitos de privacidade ou esclarecer dúvidas, entre em contato através do email oficial: <a href="mailto:contato@crescimentodoreino.com.br" class="text-brand-celeste underline">contato@crescimentodoreino.com.br</a>.</p>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Footer Simples Legal -->
+    <footer class="bg-[#f8fafc] py-12 border-t border-slate-200/50 mt-auto">
+        <div class="container-px mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <p class="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase leading-loose">
+                © 2026 CRESCIMENTO DO REINO SOFTWARE E TECNOLOGIA LTDA <br>
+                CNPJ: 65.301.296/0001-26 | PINHEIROS, SÃO PAULO - SP
+            </p>
+            <a href="mailto:contato@crescimentodoreino.com.br"
+                class="text-xs font-bold text-slate-500 hover:text-brand-celeste transition-colors">
+                contato@crescimentodoreino.com.br
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
