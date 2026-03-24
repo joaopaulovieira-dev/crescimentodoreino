@@ -115,12 +115,29 @@
 
         @layer utilities {
             .container-px { @apply px-6 md:px-12 max-w-7xl mx-auto; }
-            .glass-premium { @apply backdrop-blur-2xl border border-slate-200/50 shadow-2xl shadow-emerald-500/5; }
+            .glass-premium { @apply backdrop-blur-2xl border-[0.5px] border-slate-200/50 shadow-2xl shadow-emerald-500/5; }
             .uau-gradient-text { @apply bg-gradient-to-r from-brand-celeste via-brand-growth to-brand-aurora bg-clip-text text-transparent animate-gradient-xy; }
             .aurora-animate {
                 background: linear-gradient(-45deg, #fdfcf7, #ecfdf5, #fffbeb, #eff6ff, #fff);
                 background-size: 400% 400%;
                 animation: gradientXY 18s ease infinite;
+            }
+            .noise-overlay {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: url('https://grain-y.com/noise.png'); /* Fallback pattern */
+                opacity: 0.03; pointer-events: none; z-index: 9999;
+            }
+            #cursor-glow {
+                position: fixed; width: 600px; height: 600px;
+                background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
+                border-radius: 50%; pointer-events: none; z-index: 0;
+                transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s;
+            }
+            .parallax { transition: transform 0.1s cubic-bezier(0,0,0.2,1); }
+            .reveal-liquid { animation: revealLiquid 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+            @keyframes revealLiquid {
+                0% { clip-path: inset(0 100% 0 0); transform: translateX(-20px); }
+                100% { clip-path: inset(0 0 0 0); transform: translateX(0); }
             }
             .btn-uau {
                 @apply relative overflow-hidden px-8 py-4 rounded-3xl font-black text-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl active:scale-95 flex items-center justify-center gap-2;
@@ -145,7 +162,7 @@
 <body class="aurora-animate min-h-screen">
 
     <!-- Navbar -->
-    <header class="fixed top-4 md:top-8 left-0 w-full z-[100] px-4">
+    <header class="fixed top-0 left-0 right-0 z-[1000] px-6 py-4 transition-all duration-500" id="navbar">
         <nav class="container-px glass-premium h-16 md:h-24 rounded-[2rem] md:rounded-full flex justify-between items-center px-6 md:px-12">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-4 transition-transform active:scale-95 group" aria-label="Crescimento do Reino Home">
@@ -199,7 +216,7 @@
             <div class="absolute top-1/2 -right-32 w-[500px] h-[500px] bg-brand-purple/20 blur-[150px] animate-slow-float"></div>
 
             <div class="relative z-10 animate-reveal-up space-y-12">
-                <h1 class="font-black text-slate-900 leading-[1.05] tracking-tight text-balance">
+                <h1 class="font-black text-slate-900 leading-[1.05] tracking-tight text-balance reveal-liquid">
                     Semeando Inovação para o <br class="hidden md:block"> <span class="uau-gradient-text italic">Crescimento do Reino.</span>
                 </h1>
                 
@@ -237,10 +254,10 @@
                         <div class="h-1 w-20 bg-brand-growth rounded-full"></div>
                     </div>
                     <div class="grid grid-cols-2 gap-6 md:gap-8">
-                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl animate-slow-float">🙏</div>
-                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl translate-y-12 animate-slow-float" style="animation-delay: -2s;">💻</div>
-                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl -translate-y-12 animate-slow-float" style="animation-delay: -4s;">✨</div>
-                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl animate-slow-float" style="animation-delay: -6s;">🌎</div>
+                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl animate-slow-float parallax" data-speed="0.1">🙏</div>
+                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl animate-slow-float parallax" data-speed="-0.1" style="animation-delay: 1s">🎹</div>
+                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl animate-slow-float parallax" data-speed="0.15" style="animation-delay: 2s">✨</div>
+                        <div class="aspect-square card-uau !p-0 flex items-center justify-center text-6xl animate-slow-float parallax" data-speed="-0.05" style="animation-delay: 3s">🔥</div>
                     </div>
                 </div>
             </div>
@@ -281,6 +298,39 @@
             </div>
         </section>
 
+        <!-- Seção: Vozes do Reino (Testemunhos) - NOVA -->
+        <section class="container-px py-32 reveal">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1 space-y-6">
+                    <span class="text-brand-growth font-black tracking-widest text-xs uppercase">Vozes do Reino</span>
+                    <h2 class="font-black leading-tight">Quem caminha <br> com a gente.</h2>
+                    <p class="text-slate-500 font-medium">Líderes e músicos que transformaram sua adoração através da tecnologia.</p>
+                </div>
+                <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
+                    <div class="card-uau !p-8 space-y-6 md:translate-y-12">
+                        <p class="italic text-slate-600 font-medium leading-relaxed">"O Pads Ambiente mudou a atmosfera das nossas orações. Simplicidade que gera profundidade."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-celeste/20 flex items-center justify-center font-bold text-brand-celeste">PR</div>
+                            <div>
+                                <p class="font-black text-sm">Pr. Ricardo Santos</p>
+                                <p class="text-xs text-slate-400">Ministério de Louvor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-uau !p-8 space-y-6">
+                        <p class="italic text-slate-600 font-medium leading-relaxed">"Finalmente uma tecnologia que entende a sensibilidade do altar. Excelência de verdade."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-aurora/20 flex items-center justify-center font-bold text-brand-aurora">MA</div>
+                            <div>
+                                <p class="font-black text-sm">Mariane Alves</p>
+                                <p class="text-xs text-slate-400">Tecladista & Worship Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Seção 3: Pads Ambiente (#pads) -->
         <section id="pads" class="container-px py-32 md:py-64 reveal">
             <div class="card-uau border-none !p-0 overflow-hidden relative group">
@@ -309,11 +359,55 @@
                         <span class="text-brand-aurora font-black tracking-widest text-xs uppercase">O App Queridinho dos Músicos</span>
                         <h2 class="font-black leading-[1.1]">Pads Ambiente: <br> A Atmosfera Perfeita de <span class="bg-gradient-to-r from-brand-celeste to-brand-growth bg-clip-text text-transparent">Adoração.</span></h2>
                         
-                        <div class="flex items-center gap-6">
-                            <div class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight">+60 Mil</div>
+                        <div class="flex items-center gap-6 group">
+                            <div class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight counter" data-target="60000">0</div>
                             <div class="h-10 w-px bg-slate-200"></div>
                             <p class="text-sm font-black text-slate-400 uppercase tracking-widest leading-none">Músicos e <br> Adoradores</p>
                         </div>
+        <script>
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            const observerCounter = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const target = +entry.target.getAttribute('data-target');
+                        const count = +entry.target.innerText;
+                        const speed = 200;
+                        const inc = target / speed;
+                        const updateCount = () => {
+                            const current = +entry.target.innerText;
+                            if(current < target) {
+                                entry.target.innerText = Math.ceil(current + inc);
+                                setTimeout(updateCount, 1);
+                            } else {
+                                entry.target.innerText = '+60.000';
+                            }
+                        }
+                        updateCount();
+                        observerCounter.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 1 });
+            counters.forEach(c => observerCounter.observe(c));
+
+            // Cursor Glow
+            const glow = document.getElementById('cursor-glow');
+            document.addEventListener('mousemove', (e) => {
+                requestAnimationFrame(() => {
+                    glow.style.left = e.clientX + 'px';
+                    glow.style.top = e.clientY + 'px';
+                });
+            });
+
+            // Parallax
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                document.querySelectorAll('.parallax').forEach(el => {
+                    const speed = el.getAttribute('data-speed') || 0.1;
+                    el.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        </script>
 
                         <p class="text-lg text-slate-500 font-medium">
                             Crie fundos musicais contínuos e ambientes sonoros incríveis com apenas um toque. Simples de usar, direto do seu celular, perfeito para os momentos de oração e louvor da sua igreja.
