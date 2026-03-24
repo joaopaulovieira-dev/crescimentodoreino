@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth" style="scroll-padding-top: 120px;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -107,8 +107,9 @@
                 padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
             }
             /* Fluid Typography */
-            h1 { font-size: clamp(2.5rem, 8vw, 6.5rem); }
-            h2 { font-size: clamp(2rem, 5vw, 4.5rem); }
+            /* Fluid Typography - Otimizada para 320px até 4K */
+            h1 { font-size: clamp(2.2rem, 10vw, 6.5rem); }
+            h2 { font-size: clamp(1.8rem, 6vw, 4.5rem); }
             h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
             p { font-size: clamp(1rem, 2vw, 1.25rem); }
         }
@@ -138,6 +139,42 @@
             @keyframes revealLiquid {
                 0% { clip-path: inset(0 100% 0 0); transform: translateX(-20px); }
                 100% { clip-path: inset(0 0 0 0); transform: translateX(0); }
+            }
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .marquee-content {
+                display: flex;
+                width: max-content;
+                animation: marquee 40s linear infinite;
+            }
+            .animate-marquee-slow { animation: marquee 60s linear infinite; }
+            .animate-marquee-fast { animation: marquee 25s linear infinite; }
+
+            @keyframes float-physics {
+                0%, 100% { transform: translateY(0) rotate(0); }
+                33% { transform: translateY(-15px) rotate(2deg); }
+                66% { transform: translateY(10px) rotate(-2deg); }
+            }
+            .animate-float-subtle { animation: float-physics 8s ease-in-out infinite; }
+            .animate-float-mid { animation: float-physics 12s ease-in-out infinite reverse; }
+            .animate-float-slow { animation: float-physics 18s ease-in-out infinite; }
+
+            .flag-capsule {
+                @apply glass-premium flex items-center gap-4 px-6 py-4 rounded-full transition-all duration-700 cursor-pointer;
+                @apply bg-white/40 backdrop-blur-3xl border-white/50 hover:bg-white/90 hover:scale-110 hover:shadow-2xl hover:z-50;
+            }
+
+            .marquee-3d-mask {
+                mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+                -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            }
+            .flag-card {
+                @apply flex flex-col items-center justify-center p-6 gap-3 min-w-[120px] transition-all duration-300;
+            }
+            .flag-icon {
+                @apply w-12 h-12 rounded-full shadow-lg border-2 border-white/50 object-cover;
             }
             .btn-uau {
                 @apply relative overflow-hidden px-8 py-4 rounded-3xl font-black text-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl active:scale-95 flex items-center justify-center gap-2;
@@ -198,8 +235,8 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <div class="absolute top-24 left-4 right-4 lg:hidden pointer-events-none opacity-0 transition-all duration-500 scale-95 origin-top" id="mobile-menu">
-            <div class="glass-premium p-8 rounded-[2rem] flex flex-col gap-6 text-center font-black text-xl">
+        <div class="absolute top-24 left-4 right-4 lg:hidden pointer-events-none opacity-0 transition-all duration-500 scale-95 origin-top z-[2000]" id="mobile-menu">
+            <div class="glass-premium p-8 rounded-[2rem] flex flex-col gap-6 text-center font-black text-xl bg-white/90 backdrop-blur-3xl shadow-3xl">
                 <a href="#missao" class="mobile-link">Por que Existimos</a>
                 <a href="#ecossistema" class="mobile-link">Nossas Ferramentas</a>
                 <a href="#pads" class="mobile-link">App de Pads</a>
@@ -316,6 +353,74 @@
                         <div class="w-12 h-12 bg-brand-aurora/20 rounded-xl flex items-center justify-center text-2xl">⛪</div>
                         <h3 class="font-black text-slate-900">Em Pequenos e Grandes Templos</h3>
                         <p class="text-slate-500 font-medium leading-relaxed font-bold">Nossas soluções servem desde o grupo de oração em casa até as maiores catedrais, democratizando a tecnologia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Presença Global V5.0 "Nuvem de Nações" -->
+        <section id="presenca-global" class="py-48 md:py-72 relative overflow-hidden bg-brand-light/20">
+            <!-- Background Orbs para profundidade -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-celeste/10 blur-[130px] rounded-full"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brand-aurora/10 blur-[150px] rounded-full"></div>
+
+            <div class="container-px relative z-20 text-center space-y-24">
+                <div class="reveal-liquid space-y-6">
+                    <span class="text-brand-celeste font-black tracking-[0.3em] text-xs uppercase block">Impacto Mundial</span>
+                    <h2 class="font-black leading-[1.05] tracking-tight">O Reino não conhece <br> <span class="uau-gradient-text italic">fronteiras.</span></h2>
+                    <p class="text-slate-500 font-medium max-w-3xl mx-auto text-pretty">
+                        Em todos os fusos horários, em todas as línguas, o louvor nunca para. <br class="hidden md:block">
+                        Estamos presentes em mais de 220 países, transformando a música em adoração pura.
+                    </p>
+                </div>
+
+                <div class="space-y-20 marquee-3d-mask">
+                    <!-- Camada 1: Longe (Pequena, Lenta, Blur) -->
+                    <div class="relative py-10 opacity-30 scale-75 blur-[1px] select-none hover:opacity-100 hover:blur-0 transition-all duration-1000">
+                        <div class="marquee-content animate-marquee-slow flex gap-12 pointer-events-none">
+                            <div class="flag-capsule"><span class="text-4xl">🇯🇵</span><span class="text-xs font-black uppercase text-slate-500">Japão</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇷🇺</span><span class="text-xs font-black uppercase text-slate-500">Rússia</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇰🇷</span><span class="text-xs font-black uppercase text-slate-500">Coreia</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇮🇳</span><span class="text-xs font-black uppercase text-slate-500">Índia</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇦🇬</span><span class="text-xs font-black uppercase text-slate-500">Antígua</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇹🇭</span><span class="text-xs font-black uppercase text-slate-500">Tailândia</span></div>
+                            <!-- Duplicados -->
+                            <div class="flag-capsule"><span class="text-4xl">🇯🇵</span><span class="text-xs font-black uppercase text-slate-500">Japão</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇷🇺</span><span class="text-xs font-black uppercase text-slate-500">Rússia</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇰🇷</span><span class="text-xs font-black uppercase text-slate-500">Coreia</span></div>
+                            <div class="flag-capsule"><span class="text-4xl">🇮🇳</span><span class="text-xs font-black uppercase text-slate-500">Índia</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Camada 2: Principal (Marquee Dinâmico com Float) -->
+                    <div class="relative py-12 z-30">
+                        <div class="marquee-content animate-marquee flex gap-12 items-center">
+                            <div class="flag-capsule animate-float-subtle"><span class="text-5xl">🇧🇷</span><span class="text-sm font-black uppercase text-slate-600">Brasil</span></div>
+                            <div class="flag-capsule animate-float-mid"><span class="text-5xl">🇺🇸</span><span class="text-sm font-black uppercase text-slate-600">EUA</span></div>
+                            <div class="flag-capsule animate-float-slow"><span class="text-5xl">🇵🇹</span><span class="text-sm font-black uppercase text-slate-600">Portugal</span></div>
+                            <div class="flag-capsule animate-float-subtle"><span class="text-5xl">🇦🇴</span><span class="text-sm font-black uppercase text-slate-600">Angola</span></div>
+                            <div class="flag-capsule animate-float-mid"><span class="text-5xl">🇬🇧</span><span class="text-sm font-black uppercase text-slate-600">Reino Unido</span></div>
+                            <div class="flag-capsule animate-float-slow"><span class="text-5xl">🇮🇱</span><span class="text-sm font-black uppercase text-slate-600">Israel</span></div>
+                            <div class="flag-capsule animate-float-subtle"><span class="text-5xl">🇦🇷</span><span class="text-sm font-black uppercase text-slate-600">Argentina</span></div>
+                            <!-- Duplicados -->
+                            <div class="flag-capsule animate-float-subtle"><span class="text-5xl">🇧🇷</span><span class="text-sm font-black uppercase text-slate-600">Brasil</span></div>
+                            <div class="flag-capsule animate-float-mid"><span class="text-5xl">🇺🇸</span><span class="text-sm font-black uppercase text-slate-600">EUA</span></div>
+                            <div class="flag-capsule animate-float-slow"><span class="text-5xl">🇵🇹</span><span class="text-sm font-black uppercase text-slate-600">Portugal</span></div>
+                            <div class="flag-capsule animate-float-subtle"><span class="text-5xl">🇦🇴</span><span class="text-sm font-black uppercase text-slate-600">Angola</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Camada 3: Perto (Grande, Rápida, Floating) -->
+                    <div class="relative py-10 opacity-60 scale-110 select-none hidden lg:block">
+                        <div class="marquee-content animate-marquee-fast flex gap-16 items-center translate-x-1/4">
+                            <div class="flag-capsule animate-float-mid !py-6 bg-white/60"><span class="text-6xl">🇫🇷</span><span class="text-sm font-black uppercase text-slate-700">França</span></div>
+                            <div class="flag-capsule animate-float-subtle !py-6 bg-white/60"><span class="text-6xl">🇦🇺</span><span class="text-sm font-black uppercase text-slate-700">Austrália</span></div>
+                            <div class="flag-capsule animate-float-slow !py-6 bg-white/60"><span class="text-6xl">🇨🇦</span><span class="text-sm font-black uppercase text-slate-700">Canadá</span></div>
+                            <div class="flag-capsule animate-float-mid !py-6 bg-white/60"><span class="text-6xl">🇩🇪</span><span class="text-sm font-black uppercase text-slate-700">Alemanha</span></div>
+                            <!-- Duplicados -->
+                            <div class="flag-capsule animate-float-mid !py-6 bg-white/60"><span class="text-6xl">🇫🇷</span><span class="text-sm font-black uppercase text-slate-700">França</span></div>
+                            <div class="flag-capsule animate-float-subtle !py-6 bg-white/60"><span class="text-6xl">🇦🇺</span><span class="text-sm font-black uppercase text-slate-700">Austrália</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
