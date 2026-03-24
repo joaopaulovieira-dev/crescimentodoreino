@@ -32,20 +32,42 @@
         content="Ferramentas modernas para um propósito atemporal. Potencialize seu ministério com nossas soluções digitais.">
     <meta name="twitter:image" content="https://crescimentodoreino.com.br/assets/logo.png">
 
-    <!-- Schema JSON-LD -->
+    <!-- Schema JSON-LD (Multi-Entity SEO) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Crescimento do Reino",
-      "url": "https://crescimentodoreino.com.br",
-      "logo": "https://crescimentodoreino.com.br/assets/logo.png",
-      "description": "Uma software house dedicada a criar ferramentas de alta performance para o avanço da igreja local e do Reino de Deus.",
-      "sameAs": [
-        "https://www.instagram.com/crescimentodoreino",
-        "https://www.linkedin.com/company/crescimentodoreino"
-      ]
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://crescimentodoreino.com.br/#organization",
+        "name": "Crescimento do Reino",
+        "url": "https://crescimentodoreino.com.br",
+        "logo": "https://crescimentodoreino.com.br/assets/logo.png",
+        "description": "Ecossistema de tecnologia e inovação para potencializar o crescimento da igreja local.",
+        "sameAs": [
+          "https://www.instagram.com/crescimentodoreino",
+          "https://www.linkedin.com/company/crescimentodoreino"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pads Ambiente",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "MusicApplication",
+        "description": "Aplicativo de fundos musicais e pads contínuos para momentos de adoração e oração.",
+        "publisher": { "@id": "https://crescimentodoreino.com.br/#organization" },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "2500"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        }
+      }
+    ]
     </script>
 
     <!-- Fonts: Plus Jakarta Sans -->
@@ -466,7 +488,7 @@
 
             <div class="relative z-10 animate-reveal-up space-y-12">
                 <h1 class="font-black text-slate-900 leading-[1.05] tracking-tight text-balance reveal-liquid">
-                    Semeando Inovação para o <br class="hidden md:block"> <span
+                    Ecossistema de Tecnologia para o <br class="hidden md:block"> <span
                         class="uau-gradient-text italic">Crescimento do Reino.</span>
                 </h1>
 
@@ -897,6 +919,58 @@
             </div>
         </section>
 
+        <!-- Seção FAQ: Otimização GEO/IA -->
+        <section id="faq" class="container-px py-20 md:py-32 reveal">
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-brand-celeste font-black tracking-widest text-xs uppercase">Dúvidas Frequentes</span>
+                    <h2 class="font-black leading-tight">Perguntas <span class="uau-gradient-text italic">Comuns.</span></h2>
+                </div>
+
+                <div class="space-y-4">
+                    <details class="group bg-white/5 for-glass border border-slate-200/50 rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 hover:border-brand-celeste/30">
+                        <summary class="flex items-center justify-between font-black text-slate-900 list-none text-lg">
+                            O que é o Ecossistema Crescimento do Reino?
+                            <span class="text-brand-celeste group-open:rotate-180 transition-transform">↓</span>
+                        </summary>
+                        <div class="mt-6 text-slate-500 font-medium leading-relaxed">
+                            O Crescimento do Reino é um ecossistema de soluções tecnológicas (Software House) dedicado a potencializar o serviço da igreja local. Desenvolvemos ferramentas em quatro frentes principais: Gestão Ministerial, Louvor & Adoração (Pads Ambiente), Ensino & Discipulado e Pastoreio Integrado.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white/5 for-glass border border-slate-200/50 rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 hover:border-brand-celeste/30">
+                        <summary class="flex items-center justify-between font-black text-slate-900 list-none text-lg">
+                            Como o Pads Ambiente ajuda no louvor?
+                            <span class="text-brand-celeste group-open:rotate-180 transition-transform">↓</span>
+                        </summary>
+                        <div class="mt-6 text-slate-500 font-medium leading-relaxed">
+                            O Pads Ambiente é o nosso aplicativo flagship para músicos e adoradores. Ele permite criar fundos musicais contínuos e atmosferas de adoração com apenas um toque, eliminando silêncios desconfortáveis em momentos de oração e louvor através de tecnologia de áudio fluida e simples de usar.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white/5 for-glass border border-slate-200/50 rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 hover:border-brand-celeste/30">
+                        <summary class="flex items-center justify-between font-black text-slate-900 list-none text-lg">
+                            Os aplicativos são compatíveis com quais sistemas?
+                            <span class="text-brand-celeste group-open:rotate-180 transition-transform">↓</span>
+                        </summary>
+                        <div class="mt-6 text-slate-500 font-medium leading-relaxed">
+                            Nossas soluções mobiles, como o Pads Ambiente, são compatíveis com Android e iOS. Nossas ferramentas de gestão e ecossistema digital são desenvolvidos com tecnologias modernas para oferecer uma experiência fluida em smartphones, tablets e desktops.
+                        </div>
+                    </details>
+
+                    <details class="group bg-white/5 for-glass border border-slate-200/50 rounded-3xl p-6 md:p-8 cursor-pointer transition-all duration-300 hover:border-brand-celeste/30">
+                        <summary class="flex items-center justify-between font-black text-slate-900 list-none text-lg">
+                            Como posso solicitar suporte ou parcerias?
+                            <span class="text-brand-celeste group-open:rotate-180 transition-transform">↓</span>
+                        </summary>
+                        <div class="mt-6 text-slate-500 font-medium leading-relaxed">
+                            Estamos prontos para caminhar com sua igreja. Você pode entrar em contato diretamente com nosso time de suporte e inovação através do e-mail oficial: contato@crescimentodoreino.com.br.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
         <!-- Seção 5: Faça Parte (#join) -->
         <section id="join" class="container-px py-20 md:py-40 text-center active block">
             <div class="card-uau-join group">
@@ -948,7 +1022,7 @@
                                 <div
                                     class="absolute inset-0 bg-gradient-to-tr from-brand-celeste/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700">
                                 </div>
-                                <img src="assets/logo.png" alt="Logo Rodapé"
+                                <img src="assets/logo.png" alt="Crescimento do Reino - Inovação para Igrejas"
                                     class="w-full h-full object-contain rounded-xl relative z-10 scale-90 group-hover:scale-100 transition-transform duration-500">
                             </div>
                             <div class="space-y-1">
